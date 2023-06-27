@@ -22,12 +22,7 @@ namespace dg {
     class DartGame {
     public:
         DartGame();
-        sf::Vector2i mouse_position = sf::Mouse::getPosition(window);
-        float mouseX = static_cast<float>(mouse_position.x);
-        float mouseY = static_cast<float>(mouse_position.y);
-
-        void run();
-
+         void run();
 
     private:
         float getDistance(float x0, float y0, float x1, float y1);

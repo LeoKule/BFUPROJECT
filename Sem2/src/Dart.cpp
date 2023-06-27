@@ -35,7 +35,7 @@ namespace dg {
         this->y0 = y0;
         x = x0;
         y = y0;
-        m_shape.setPosition(x, y);
+        m_shape.setPosition(0, 0);
     }
 
     void Dart::setAngle(float Angle) {
@@ -57,13 +57,13 @@ namespace dg {
     void Dart::setPosition(float X, float Y) {
         if (X - w + 30 < 0)
             x = w - 30;
-        else if (x + w - 30 > WIDTH)
+        else if (X + w - 30 > WIDTH)
             x = WIDTH - w + 30;
         else
             X = x;
-        if (y - h < 0)
+        if (Y - h < 0)
             y = h;
-        else if (y + h > HEIGHT)
+        else if (Y + h > HEIGHT)
             y = HEIGHT - h;
         else
             y = Y;
@@ -84,25 +84,21 @@ namespace dg {
         } else if ((!isPushed && y + h <= 400) ||
                    (isPushed && x - w + 30 > 0 && y - h > 0 && y + h < HEIGHT)) {
             // Perform dart movement based on the elapsed time and initial velocity
-            float x = x0 + v0 * cos(angle) * t;
-            float y = y0 + v0 * sin(angle) * t + G * t * t / 2;
-            m_shape.setPosition(x, y);
+            float X = x0 + v0 * cos(angle) * t;
+            float Y = y0 + v0 * sin(angle) * t + G * t * t / 2;
+            m_shape.setPosition(X, Y);
             m_shape.setRotation(getAngle(x0, y0, x, y) * (180.0 / M_PI));
-
-            // Check for collision or any other conditions to stop the movement
-            if (isPushed) {
-                scoreboard.addScore(-10);
-                std::this_thread::sleep_for(std::chrono::milliseconds(500));
-                this->v0 = 5;
-                this->angle = M_PI / 2;
-                this->setPosition(240, 150);
-                this->setStartPosition(240, 150);
-                t = 0;
-                isPushed = false;
-            }
-
-            t += dt;
+        } else if (isPushed) {
+            scoreboard.addScore(-10);
+            std::this_thread::sleep_for(std::chrono::milliseconds(500));
+            this->v0 = 5;
+            this->angle = M_PI / 2;
+            this->setPosition(240, 150);
+            this->setStartPosition(240, 150);
+            t = 0;
+            isPushed = false;
         }
+
     }
 
     float Dart::getX() const {

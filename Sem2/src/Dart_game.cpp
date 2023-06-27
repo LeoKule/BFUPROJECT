@@ -22,12 +22,10 @@ namespace dg {
     }
 
 
-
     bool moveWhenPush(sf::RenderWindow &window, Dart &dart, Scoreboard &scoreboard){
         sf::Vector2i mouse_position = sf::Mouse::getPosition(window);
         auto mouseX = static_cast<float>(mouse_position.x);
         auto mouseY = static_cast<float>(mouse_position.y);
-        bool Flag = false;
         // обработка позиции мыши для проверки попадания по хитбоксу дротика для последующего перемещения
         if ((dart.getX() + dart.getWidth() >= mouseX &&
              dart.getX() - dart.getWidth() <= mouseX) &&
@@ -48,6 +46,7 @@ namespace dg {
                 } else {
                     sf::Mouse::setPosition(sf::Vector2i(500, mouse_position.y), window);
                 }
+
             }
             // если пользователь попал возвращаем true
             return true;
@@ -88,7 +87,7 @@ namespace dg {
             float y1 = mY;
             dart.setStartPosition(dart.getX(), dart.getY());
 
-            dart.setInitialSpeed(getDistance(x0, y0, x1, y1));
+            dart.setInitialSpeed(DartGame::getDistance(x0, y0, x1, y1));
             dart.setAngle(dg::getAngle1(x0,y0,x1,y1));
 
             dart.setSelfTime(0);
