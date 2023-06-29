@@ -11,9 +11,13 @@ namespace dg {
 
         void addScore(int score);
 
+        sf::Text getShape();
+
         void update();
 
         void draw(sf::RenderWindow& window) override;
+
+
 
     private:
         long int score;

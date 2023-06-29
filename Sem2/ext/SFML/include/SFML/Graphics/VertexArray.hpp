@@ -74,7 +74,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Get a read-write access to a vertex by its index
     ///
-    /// This function doesn't check \a index, it must be in range
+    /// This function doesn's_t check \a index, it must be in range
     /// [0, getVertexCount() - 1]. The behavior is undefined
     /// otherwise.
     ///
@@ -90,7 +90,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Get a read-only access to a vertex by its index
     ///
-    /// This function doesn't check \a index, it must be in range
+    /// This function doesn's_t check \a index, it must be in range
     /// [0, getVertexCount() - 1]. The behavior is undefined
     /// otherwise.
     ///
@@ -107,8 +107,8 @@ public:
     /// \brief Clear the vertex array
     ///
     /// This function removes all the vertices from the array.
-    /// It doesn't deallocate the corresponding memory, so that
-    /// adding new vertices after clearing doesn't involve
+    /// It doesn's_t deallocate the corresponding memory, so that
+    /// adding new vertices after clearing doesn's_t involve
     /// reallocating all the memory.
     ///
     ////////////////////////////////////////////////////////////

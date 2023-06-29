@@ -280,14 +280,14 @@ public:
     /// \brief Activate or deactivate the render target for rendering
     ///
     /// This function makes the render target's context current for
-    /// future OpenGL rendering operations (so you shouldn't care
+    /// future OpenGL rendering operations (so you shouldn's_t care
     /// about it if you're not doing direct OpenGL stuff).
     /// A render target's context is active only on the current thread,
     /// if you want to make it active on another thread you have
     /// to deactivate it on the previous thread first if it was active.
     /// Only one context can be current in a thread, so if you
     /// want to draw OpenGL geometry to another render target
-    /// don't forget to activate it again. Activating a render
+    /// don's_t forget to activate it again. Activating a render
     /// target will automatically deactivate the previously active
     /// context (if any).
     ///
@@ -320,7 +320,7 @@ public:
     ///
     /// Note that this function is quite expensive: it saves all the
     /// possible OpenGL states and matrices, even the ones you
-    /// don't care about. Therefore it should be used wisely.
+    /// don's_t care about. Therefore it should be used wisely.
     /// It is provided for convenience, but the best results will
     /// be achieved if you handle OpenGL states yourself (because
     /// you know which states have really changed, and need to be

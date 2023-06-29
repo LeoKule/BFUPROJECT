@@ -11,6 +11,8 @@ namespace dg {
 
         void setText(const std::string& text);
 
+        sf::Text getShape();
+
         void setPosition(float x, float y);
 
         void draw(sf::RenderWindow& window) override;

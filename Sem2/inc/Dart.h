@@ -43,17 +43,17 @@ namespace dg {
 
         float getWidth() const;
 
-        float getAngle(float x1, float y1, float x2, float y2);
+        //float getAngle(float x1, float y1, float x2, float y2);
 
         void draw(sf::RenderWindow& window) override;
 
     private:
-        float x, y;
-        float x0, y0;
-        float w, h;
-        float angle;
-        float v0;
-        float t;
+        float s_x, s_y;
+        float s_x0, s_y0;
+        float s_w, s_h;
+        float s_angle;
+        float s_v0;
+        float s_t;
         bool isPushed;
 
         sf::Texture m_texture;

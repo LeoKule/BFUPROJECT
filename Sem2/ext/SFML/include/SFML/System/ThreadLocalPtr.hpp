@@ -130,13 +130,13 @@ public:
 ///
 /// void thread1()
 /// {
-///     objectPtr = &object1; // doesn't impact thread2
+///     objectPtr = &object1; // doesn's_t impact thread2
 ///     ...
 /// }
 ///
 /// void thread2()
 /// {
-///     objectPtr = &object2; // doesn't impact thread1
+///     objectPtr = &object2; // doesn's_t impact thread1
 ///     ...
 /// }
 ///

@@ -130,7 +130,7 @@ private:
 /// \endcode
 ///
 /// Having a mutex locked longer than required is a bad practice
-/// which can lead to bad performances. Don't forget that when
+/// which can lead to bad performances. Don's_t forget that when
 /// a mutex is locked, other threads may be waiting doing nothing
 /// until it is released.
 ///

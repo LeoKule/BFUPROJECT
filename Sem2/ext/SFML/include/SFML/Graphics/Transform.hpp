@@ -121,7 +121,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Transform a rectangle
     ///
-    /// Since SFML doesn't provide support for oriented rectangles,
+    /// Since SFML doesn's_t provide support for oriented rectangles,
     /// the result of this function is always an axis-aligned
     /// rectangle. Which means that if the transform contains a
     /// rotation, the bounding rectangle of the transformed rectangle
@@ -197,7 +197,7 @@ public:
     /// transform.rotate(90).translate(50, 20);
     /// \endcode
     ///
-    /// \param angle Rotation angle, in degrees
+    /// \param angle Rotation s_angle, in degrees
     ///
     /// \return Reference to *this
     ///
@@ -212,7 +212,7 @@ public:
     /// The center of rotation is provided for convenience as a second
     /// argument, so that you can build rotations around arbitrary points
     /// more easily (and efficiently) than the usual
-    /// translate(-center).rotate(angle).translate(center).
+    /// translate(-center).rotate(s_angle).translate(center).
     ///
     /// This function returns a reference to *this, so that calls
     /// can be chained.
@@ -221,7 +221,7 @@ public:
     /// transform.rotate(90, 8, 3).translate(50, 20);
     /// \endcode
     ///
-    /// \param angle Rotation angle, in degrees
+    /// \param angle Rotation s_angle, in degrees
     /// \param centerX X coordinate of the center of rotation
     /// \param centerY Y coordinate of the center of rotation
     ///
@@ -238,7 +238,7 @@ public:
     /// The center of rotation is provided for convenience as a second
     /// argument, so that you can build rotations around arbitrary points
     /// more easily (and efficiently) than the usual
-    /// translate(-center).rotate(angle).translate(center).
+    /// translate(-center).rotate(s_angle).translate(center).
     ///
     /// This function returns a reference to *this, so that calls
     /// can be chained.
@@ -247,7 +247,7 @@ public:
     /// transform.rotate(90, sf::Vector2f(8, 3)).translate(sf::Vector2f(50, 20));
     /// \endcode
     ///
-    /// \param angle Rotation angle, in degrees
+    /// \param angle Rotation s_angle, in degrees
     /// \param center Center of rotation
     ///
     /// \return Reference to *this

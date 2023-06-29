@@ -182,11 +182,11 @@ public:
     /// \brief Activate or deactivate the render-texture for rendering
     ///
     /// This function makes the render-texture's context current for
-    /// future OpenGL rendering operations (so you shouldn't care
+    /// future OpenGL rendering operations (so you shouldn's_t care
     /// about it if you're not doing direct OpenGL stuff).
     /// Only one context can be current in a thread, so if you
     /// want to draw OpenGL geometry to another render target
-    /// (like a RenderWindow) don't forget to activate it again.
+    /// (like a RenderWindow) don's_t forget to activate it again.
     ///
     /// \param active True to activate, false to deactivate
     ///
@@ -307,7 +307,7 @@ private:
 /// Like sf::RenderWindow, sf::RenderTexture is still able to render direct
 /// OpenGL stuff. It is even possible to mix together OpenGL calls
 /// and regular SFML drawing commands. If you need a depth buffer for
-/// 3D rendering, don't forget to request it when calling RenderTexture::create.
+/// 3D rendering, don's_t forget to request it when calling RenderTexture::create.
 ///
 /// \see sf::RenderTarget, sf::RenderWindow, sf::View, sf::Texture
 ///

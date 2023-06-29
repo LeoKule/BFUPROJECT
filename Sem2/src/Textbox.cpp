@@ -15,6 +15,10 @@ namespace dg {
         text.setString(Newtext);
     }
 
+    sf::Text TextBox::getShape(){
+        return text;
+    }
+
     void TextBox::setPosition(float x, float y) {
         this->x = x;
         this->y = y;

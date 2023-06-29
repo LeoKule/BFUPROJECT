@@ -4,14 +4,12 @@
 
 namespace dg {
     Dart::Dart(float X, float Y, float W, float H, float Angle, float V0){
-        x = X; y = Y; w = W; h = H; angle = Angle; v0 = V0; t = 0; isPushed = false; x0 = X; y0 = Y;
-        m_shape.setPosition(x, y);
-        m_shape.setOrigin(sf::Vector2f(w, h));
+        s_x = X; s_y = Y; s_w = W; s_h = H; s_angle = Angle; s_v0 = V0; s_t = 0; isPushed = false; s_x0 = X; s_y0 = Y;
         uploadTexture();
+        m_shape.setPosition(s_x, s_y);
+        m_shape.setOrigin(sf::Vector2f(s_w, s_h));
         m_shape.setTexture(m_texture);
     }
-
-    float dt;
 
     bool Dart::uploadTexture() {
         if (!m_texture.loadFromFile("data/img/drotic.png")) {
@@ -30,113 +28,108 @@ namespace dg {
         isPushed = put;
     }
 
-    void Dart::setStartPosition(float x0, float y0) {
-        this->x0 = x0;
-        this->y0 = y0;
-        x = x0;
-        y = y0;
+    void Dart::setStartPosition(float X0, float Y0) {
+        this->s_x0 = X0;
+        this->s_y0 = Y0;
+        s_x = s_x0;
+        s_y = s_y0;
         m_shape.setPosition(0, 0);
     }
 
     void Dart::setAngle(float Angle) {
-        this->angle = Angle;
+        this->s_angle = Angle;
     }
 
     void Dart::setInitialSpeed(float V0) {
-        this->v0 = V0;
+        this->s_v0 = V0;
     }
 
     void Dart::setSelfTime(float Time) {
-        t = Time;
+        s_t = Time;
     }
 
     void Dart::addSelfTime(float time) {
-        t += time;
+        s_t += time;
     }
 
     void Dart::setPosition(float X, float Y) {
-        if (X - w + 30 < 0)
-            x = w - 30;
-        else if (X + w - 30 > WIDTH)
-            x = WIDTH - w + 30;
+        if (X - s_w + 30 < 0)
+            s_x = s_w - 30;
+        else if (X + s_w - 30 > WIDTH)
+            s_x = WIDTH - s_w + 30;
         else
-            X = x;
-        if (Y - h < 0)
-            y = h;
-        else if (Y + h > HEIGHT)
-            y = HEIGHT - h;
+            s_x = X;
+        if (Y - s_h < 0)
+            s_y = s_h;
+        else if (Y + s_h > HEIGHT)
+            s_y = HEIGHT - s_h;
         else
-            y = Y;
-        m_shape.setPosition(x, y);
+            s_y = Y;
+        m_shape.setPosition(s_x, s_y);
     }
 
     void Dart::Move(Scoreboard &scoreboard) {
-        if ((x + w - 30 >= WIDTH && (y < 64 || y > 414)) ||
-            (x + w - 10 >= WIDTH && !(y < 64 || y > 414))) {
+        if (s_x + s_w - 30 >= WIDTH && (s_y < 64 || s_y > 414) ||
+            (s_x + s_w - 10 >= WIDTH) && !(s_y < 64 || s_y > 414)) {
             scoreboard.addScore(getPoints());
-            std::this_thread::sleep_for(std::chrono::milliseconds(500));
-            this->v0 = 5;
-            this->angle = M_PI / 2;
+            std::this_thread::sleep_for(500ms);
+            this->s_v0 = 5;
+            this->s_angle = M_PI / 2;
             this->setPosition(250, 150);
             this->setStartPosition(250, 150);
-            t = 0;
+            s_t = 0;
             isPushed = false;
-        } else if ((!isPushed && y + h <= 400) ||
-                   (isPushed && x - w + 30 > 0 && y - h > 0 && y + h < HEIGHT)) {
+            std::cout << s_x << std::endl;
+        } else if ((!isPushed && s_y + s_h <= 400) ||
+                   (isPushed && s_x - s_w + 30 > 0 && s_y - s_h > 0 && s_y + s_h < HEIGHT)) {
+            std::cout << s_x << std::endl;
             // Perform dart movement based on the elapsed time and initial velocity
-            float X = x0 + v0 * cos(angle) * t;
-            float Y = y0 + v0 * sin(angle) * t + G * t * t / 2;
-            m_shape.setPosition(X, Y);
-            m_shape.setRotation(getAngle(x0, y0, x, y) * (180.0 / M_PI));
+            float x = s_x0 + s_v0 * cos(s_angle) * s_t;
+            float y = s_y0 + s_v0 * sin(s_angle) * s_t + G * s_t * s_t / 2;
+            m_shape.setPosition(x, y);
+            m_shape.setRotation(dg::getAngle(s_x0, s_y0, s_x, s_y) * (180.0 / M_PI));
         } else if (isPushed) {
+            std::cout << s_x << std::endl;
             scoreboard.addScore(-10);
-            std::this_thread::sleep_for(std::chrono::milliseconds(500));
-            this->v0 = 5;
-            this->angle = M_PI / 2;
+            std::this_thread::sleep_for(500ms);
+            this->s_v0 = 5;
+            this->s_angle = M_PI / 2;
             this->setPosition(240, 150);
             this->setStartPosition(240, 150);
-            t = 0;
+            s_t = 0;
             isPushed = false;
         }
 
     }
 
     float Dart::getX() const {
-        return x;
+        return s_x;
     }
 
     float Dart::getY() const {
-        return y;
+        return s_y;
     }
 
     float Dart::getHeight() const {
-        return h;
+        return s_h;
     }
 
     float Dart::getWidth() const {
-        return w;
+        return s_w;
     }
-
-    float Dart::getAngle(float x1, float y1, float x2, float y2) {
-        float dx = x2 - x1;
-        float dy = y2 - y1;
-        return atan2(dy, dx);
-    }
-
 
     void Dart::draw(sf::RenderWindow &window) {
         window.draw(m_shape);
     }
 
-
     int Dart::getPoints() const {
-        if (64 <= y && y <= 139 || 339 <= y && y <= 414) {
+        if (64 <= s_y && s_y <= 139 || 339 <= s_y && s_y <= 414) {
             return 1;
-        } else if (139 < y && y <= 189 || 289 <= y && y < 339) {
+        } else if (139 < s_y && s_y <= 189 || 289 <= s_y && s_y < 339) {
             return 3;
-        } else if (189 < y && y <= 224 || 254 <= y && y < 289) {
+        } else if (189 < s_y && s_y <= 224 || 254 <= s_y && s_y < 289) {
             return 5;
-        } else if (224 <= y && y <= 254) {
+        } else if (224 <= s_y && s_y <= 254) {
             return 10;
         } else
             return -5;

@@ -113,7 +113,7 @@ public:
     ///
     /// The \a font argument refers to a font that must
     /// exist as long as the text uses it. Indeed, the text
-    /// doesn't store its own copy of the font, but rather keeps
+    /// doesn's_t store its own copy of the font, but rather keeps
     /// a pointer to the one that you passed to this function.
     /// If the font is destroyed and the text tries to
     /// use it, the behavior is undefined.
@@ -162,7 +162,7 @@ public:
     /// \brief Set the letter spacing factor
     ///
     /// The default spacing between letters is defined by the font.
-    /// This factor doesn't directly apply to the existing
+    /// This factor doesn's_t directly apply to the existing
     /// spacing between each character, it rather adds a fixed
     /// space between them which is calculated from the font
     /// metrics and the character size.
@@ -484,7 +484,7 @@ private:
 /// object which can combine the glyphs data and metrics of a sf::Font
 /// to display any text on a render target.
 ///
-/// It is important to note that the sf::Text instance doesn't
+/// It is important to note that the sf::Text instance doesn's_t
 /// copy the font that it uses, it only keeps a reference to it.
 /// Thus, a sf::Font must not be destructed while it is
 /// used by a sf::Text (i.e. never write a function that

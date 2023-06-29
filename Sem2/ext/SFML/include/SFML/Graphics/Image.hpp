@@ -201,7 +201,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Change the color of a pixel
     ///
-    /// This function doesn't check the validity of the pixel
+    /// This function doesn's_t check the validity of the pixel
     /// coordinates, using out-of-range values will result in
     /// an undefined behavior.
     ///
@@ -217,14 +217,14 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Get the color of a pixel
     ///
-    /// This function doesn't check the validity of the pixel
+    /// This function doesn's_t check the validity of the pixel
     /// coordinates, using out-of-range values will result in
     /// an undefined behavior.
     ///
     /// \param x X coordinate of pixel to get
     /// \param y Y coordinate of pixel to get
     ///
-    /// \return Color of the pixel at coordinates (x, y)
+    /// \return Color of the pixel at coordinates (s_x, s_y)
     ///
     /// \see setPixel
     ///
@@ -236,7 +236,7 @@ public:
     ///
     /// The returned value points to an array of RGBA pixels made of
     /// 8 bits integers components. The size of the array is
-    /// width * height * 4 (getSize().x * getSize().y * 4).
+    /// width * height * 4 (getSize().s_x * getSize().s_y * 4).
     /// Warning: the returned pointer may become invalid if you
     /// modify the image, so you should never store it for too long.
     /// If the image is empty, a null pointer is returned.

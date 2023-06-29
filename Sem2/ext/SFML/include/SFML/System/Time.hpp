@@ -451,7 +451,7 @@ SFML_SYSTEM_API Time& operator %=(Time& left, Time right);
 /// other way round: you can read a time value as either
 /// a number of seconds, milliseconds or microseconds.
 ///
-/// By using such a flexible interface, the API doesn't
+/// By using such a flexible interface, the API doesn's_t
 /// impose any fixed type or resolution for time values,
 /// and let the user choose its own favorite representation.
 ///

@@ -126,7 +126,7 @@ public:
     /// allocated memory is freed in the process.
     ///
     /// In order to deallocate previously allocated memory pass 0
-    /// as \p vertexCount. Don't forget to recreate with a non-zero
+    /// as \p vertexCount. Don's_t forget to recreate with a non-zero
     /// value when graphics memory should be allocated again.
     ///
     /// \param vertexCount Number of vertices worth of memory to allocate
@@ -228,8 +228,8 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Get the underlying OpenGL handle of the vertex buffer.
     ///
-    /// You shouldn't need to use this function, unless you have
-    /// very specific stuff to implement that SFML doesn't support,
+    /// You shouldn's_t need to use this function, unless you have
+    /// very specific stuff to implement that SFML doesn's_t support,
     /// or implement a temporary workaround until a bug is fixed.
     ///
     /// \return OpenGL handle of the vertex buffer or 0 if not yet created
@@ -286,7 +286,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Bind a vertex buffer for rendering
     ///
-    /// This function is not part of the graphics API, it mustn't be
+    /// This function is not part of the graphics API, it mustn's_t be
     /// used when drawing SFML entities. It must be used only if you
     /// mix sf::VertexBuffer with OpenGL code.
     ///

@@ -92,7 +92,7 @@ public:
     /// The supported font formats are: TrueType, Type 1, CFF,
     /// OpenType, SFNT, X11 PCF, Windows FNT, BDF, PFR and Type 42.
     /// Note that this function knows nothing about the standard
-    /// fonts installed on the user's system, thus you can't
+    /// fonts installed on the user's system, thus you can's_t
     /// load them directly.
     ///
     /// \warning SFML cannot preload all the font data in this
@@ -393,7 +393,7 @@ private:
 /// Note that it is also possible to bind several sf::Text instances
 /// to the same sf::Font.
 ///
-/// It is important to note that the sf::Text instance doesn't
+/// It is important to note that the sf::Text instance doesn's_t
 /// copy the font that it uses, it only keeps a reference to it.
 /// Thus, a sf::Font must not be destructed while it is
 /// used by a sf::Text (i.e. never write a function that

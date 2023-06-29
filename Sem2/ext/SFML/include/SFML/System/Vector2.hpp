@@ -58,7 +58,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Construct the vector from another type of vector
     ///
-    /// This constructor doesn't replace the copy constructor,
+    /// This constructor doesn's_t replace the copy constructor,
     /// it's called only when U != T.
     /// A call to this constructor will fail to compile if U
     /// is not convertible to T.
@@ -265,7 +265,7 @@ typedef Vector2<float>        Vector2f;
 /// \ingroup system
 ///
 /// sf::Vector2 is a simple class that defines a mathematical
-/// vector with two coordinates (x and y). It can be used to
+/// vector with two coordinates (s_x and s_y). It can be used to
 /// represent anything that has two dimensions: a size, a point,
 /// a velocity, etc.
 ///
@@ -273,21 +273,21 @@ typedef Vector2<float>        Vector2f;
 /// can be any type that supports arithmetic operations (+, -, /, *)
 /// and comparisons (==, !=), for example int or float.
 ///
-/// You generally don't have to care about the templated form (sf::Vector2<T>),
+/// You generally don's_t have to care about the templated form (sf::Vector2<T>),
 /// the most common specializations have special typedefs:
 /// \li sf::Vector2<float> is sf::Vector2f
 /// \li sf::Vector2<int> is sf::Vector2i
 /// \li sf::Vector2<unsigned int> is sf::Vector2u
 ///
-/// The sf::Vector2 class has a small and simple interface, its x and y members
+/// The sf::Vector2 class has a small and simple interface, its s_x and s_y members
 /// can be accessed directly (there are no accessors like setX(), getX()) and it
 /// contains no mathematical function like dot product, cross product, length, etc.
 ///
 /// Usage example:
 /// \code
 /// sf::Vector2f v1(16.5f, 24.f);
-/// v1.x = 18.2f;
-/// float y = v1.y;
+/// v1.s_x = 18.2f;
+/// float s_y = v1.s_y;
 ///
 /// sf::Vector2f v2 = v1 * 5.f;
 /// sf::Vector2f v3;

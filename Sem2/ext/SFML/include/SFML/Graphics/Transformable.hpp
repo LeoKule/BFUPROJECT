@@ -87,7 +87,7 @@ public:
     /// \brief set the orientation of the object
     ///
     /// This function completely overwrites the previous rotation.
-    /// See the rotate function to add an angle based on the previous rotation instead.
+    /// See the rotate function to add an s_angle based on the previous rotation instead.
     /// The default rotation of a transformable object is 0.
     ///
     /// \param angle New rotation, in degrees
@@ -211,7 +211,7 @@ public:
     /// Thus, it is equivalent to the following code:
     /// \code
     /// sf::Vector2f pos = object.getPosition();
-    /// object.setPosition(pos.x + offsetX, pos.y + offsetY);
+    /// object.setPosition(pos.s_x + offsetX, pos.s_y + offsetY);
     /// \endcode
     ///
     /// \param offsetX X offset
@@ -246,7 +246,7 @@ public:
     /// unlike setRotation which overwrites it.
     /// Thus, it is equivalent to the following code:
     /// \code
-    /// object.setRotation(object.getRotation() + angle);
+    /// object.setRotation(object.getRotation() + s_angle);
     /// \endcode
     ///
     /// \param angle Angle of rotation, in degrees
@@ -262,7 +262,7 @@ public:
     /// Thus, it is equivalent to the following code:
     /// \code
     /// sf::Vector2f scale = object.getScale();
-    /// object.setScale(scale.x * factorX, scale.y * factorY);
+    /// object.setScale(scale.s_x * factorX, scale.s_y * factorY);
     /// \endcode
     ///
     /// \param factorX Horizontal scale factor
@@ -281,7 +281,7 @@ public:
     /// Thus, it is equivalent to the following code:
     /// \code
     /// sf::Vector2f scale = object.getScale();
-    /// object.setScale(scale.x * factor.x, scale.y * factor.y);
+    /// object.setScale(scale.s_x * factor.s_x, scale.s_y * factor.s_y);
     /// \endcode
     ///
     /// \param factor Scale factors
@@ -390,8 +390,8 @@ private:
 /// window.draw(entity);
 /// \endcode
 ///
-/// It can also be used as a member, if you don't want to use
-/// its API directly (because you don't need all its functions,
+/// It can also be used as a member, if you don's_t want to use
+/// its API directly (because you don's_t need all its functions,
 /// or you have different naming conventions for example).
 /// \code
 /// class MyEntity
@@ -399,7 +399,7 @@ private:
 /// public:
 ///     void SetPosition(const MyVector& v)
 ///     {
-///         myTransform.setPosition(v.x(), v.y());
+///         myTransform.setPosition(v.s_x(), v.s_y());
 ///     }
 ///
 ///     void Draw(sf::RenderTarget& target) const

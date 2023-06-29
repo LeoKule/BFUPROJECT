@@ -48,7 +48,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Default constructor
     ///
-    /// This constructor doesn't actually create the window,
+    /// This constructor doesn's_t actually create the window,
     /// use the other constructors or call create() to do so.
     ///
     ////////////////////////////////////////////////////////////
@@ -64,7 +64,7 @@ public:
     ///
     /// The fourth parameter is an optional structure specifying
     /// advanced OpenGL context settings such as antialiasing,
-    /// depth-buffer bits, etc. You shouldn't care about these
+    /// depth-buffer bits, etc. You shouldn's_t care about these
     /// parameters for a regular usage of the graphics module.
     ///
     /// \param mode     Video mode to use (defines the width, height and depth of the rendering area of the window)
@@ -83,7 +83,7 @@ public:
     ///
     /// The second parameter is an optional structure specifying
     /// advanced OpenGL context settings such as antialiasing,
-    /// depth-buffer bits, etc. You shouldn't care about these
+    /// depth-buffer bits, etc. You shouldn's_t care about these
     /// parameters for a regular usage of the graphics module.
     ///
     /// \param handle   Platform-specific handle of the control (\a HWND on
@@ -104,7 +104,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Get the size of the rendering region of the window
     ///
-    /// The size doesn't include the titlebar and borders
+    /// The size doesn's_t include the titlebar and borders
     /// of the window.
     ///
     /// \return Size in pixels
@@ -139,7 +139,7 @@ public:
     /// \code
     /// sf::Vector2u windowSize = window.getSize();
     /// sf::Texture texture;
-    /// texture.create(windowSize.x, windowSize.y);
+    /// texture.create(windowSize.s_x, windowSize.s_y);
     /// texture.update(window);
     /// sf::Image screenshot = texture.copyToImage();
     /// \endcode

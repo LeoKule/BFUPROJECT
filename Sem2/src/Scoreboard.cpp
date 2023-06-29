@@ -3,10 +3,14 @@
 namespace dg {
     Scoreboard::Scoreboard() : score(0), deltaScore(0), textBox(20, 20, "Number of points: 0") {}
 
-    void Scoreboard::addScore(int score) {
-        deltaScore = score;
-        this->score += score;
+    void Scoreboard::addScore(int Score) {
+        deltaScore = Score;
+        this->score += Score;
         update();
+    }
+
+    sf::Text Scoreboard::getShape() {
+        return textBox.getShape();
     }
 
     void Scoreboard::update() {

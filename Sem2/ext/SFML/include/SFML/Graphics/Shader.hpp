@@ -628,8 +628,8 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Get the underlying OpenGL handle of the shader.
     ///
-    /// You shouldn't need to use this function, unless you have
-    /// very specific stuff to implement that SFML doesn't support,
+    /// You shouldn's_t need to use this function, unless you have
+    /// very specific stuff to implement that SFML doesn's_t support,
     /// or implement a temporary workaround until a bug is fixed.
     ///
     /// \return OpenGL handle of the shader or 0 if not yet loaded
@@ -640,7 +640,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Bind a shader for rendering
     ///
-    /// This function is not part of the graphics API, it mustn't be
+    /// This function is not part of the graphics API, it mustn's_t be
     /// used when drawing SFML entities. It must be used only if you
     /// mix sf::Shader with OpenGL code.
     ///
@@ -856,9 +856,9 @@ private:
 ///     sf::Texture::update(Window&) to copy its contents to a texture
 ///     and draw it to the main target using the shader
 ///
-/// The first technique is more optimized because it doesn't involve
+/// The first technique is more optimized because it doesn's_t involve
 /// retrieving the target's pixels to system memory, but the
-/// second one doesn't impact the rendering process and can be
+/// second one doesn's_t impact the rendering process and can be
 /// easily inserted anywhere without impacting all the code.
 ///
 /// Like sf::Texture that can be used as a raw OpenGL texture,

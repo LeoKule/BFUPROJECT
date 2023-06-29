@@ -62,7 +62,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Default constructor
     ///
-    /// This constructor doesn't actually create the window,
+    /// This constructor doesn's_t actually create the window,
     /// use the other constructors or call create() to do so.
     ///
     ////////////////////////////////////////////////////////////
@@ -155,7 +155,7 @@ public:
     /// After calling this function, the sf::Window instance remains
     /// valid and you can call create() to recreate the window.
     /// All other functions such as pollEvent() or display() will
-    /// still work (i.e. you don't have to test isOpen() every time),
+    /// still work (i.e. you don's_t have to test isOpen() every time),
     /// and will have no effect on closed windows.
     ///
     ////////////////////////////////////////////////////////////
@@ -265,7 +265,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Get the size of the rendering region of the window
     ///
-    /// The size doesn't include the titlebar and borders
+    /// The size doesn's_t include the titlebar and borders
     /// of the window.
     ///
     /// \return Size in pixels
@@ -298,7 +298,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Change the window's icon
     ///
-    /// \a pixels must be an array of \a width x \a height pixels
+    /// \a pixels must be an array of \a width s_x \a height pixels
     /// in 32-bits RGBA format.
     ///
     /// The OS default icon is used by default.
@@ -487,8 +487,8 @@ public:
     ///
     /// The type of the returned handle is sf::WindowHandle,
     /// which is a typedef to the handle type defined by the OS.
-    /// You shouldn't need to use this function, unless you have
-    /// very specific stuff to implement that SFML doesn't support,
+    /// You shouldn's_t need to use this function, unless you have
+    /// very specific stuff to implement that SFML doesn's_t support,
     /// or implement a temporary workaround until a bug is fixed.
     ///
     /// \return System handle of the window
