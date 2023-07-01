@@ -282,7 +282,7 @@ public:
     ///
     /// Although the source texture can be smaller than this texture,
     /// this function is usually used for updating the whole texture.
-    /// The other overload, which has (s_x, s_y) additional arguments,
+    /// The other overload, which has (x, y) additional arguments,
     /// is more convenient for updating a sub-area of this texture.
     ///
     /// No additional check is performed on the size of the passed
@@ -319,7 +319,7 @@ public:
     ///
     /// Although the source image can be smaller than the texture,
     /// this function is usually used for updating the whole texture.
-    /// The other overload, which has (s_x, s_y) additional arguments,
+    /// The other overload, which has (x, y) additional arguments,
     /// is more convenient for updating a sub-area of the texture.
     ///
     /// No additional check is performed on the size of the image,
@@ -356,7 +356,7 @@ public:
     ///
     /// Although the source window can be smaller than the texture,
     /// this function is usually used for updating the whole texture.
-    /// The other overload, which has (s_x, s_y) additional arguments,
+    /// The other overload, which has (x, y) additional arguments,
     /// is more convenient for updating a sub-area of the texture.
     ///
     /// No additional check is performed on the size of the window,
@@ -529,8 +529,8 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Get the underlying OpenGL handle of the texture.
     ///
-    /// You shouldn's_t need to use this function, unless you have
-    /// very specific stuff to implement that SFML doesn's_t support,
+    /// You shouldn't need to use this function, unless you have
+    /// very specific stuff to implement that SFML doesn't support,
     /// or implement a temporary workaround until a bug is fixed.
     ///
     /// \return OpenGL handle of the texture or 0 if not yet created
@@ -541,7 +541,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Bind a texture for rendering
     ///
-    /// This function is not part of the graphics API, it mustn's_t be
+    /// This function is not part of the graphics API, it mustn't be
     /// used when drawing SFML entities. It must be used only if you
     /// mix sf::Texture with OpenGL code.
     ///
@@ -562,7 +562,7 @@ public:
     /// texture coordinates with OpenGL. If Pixels, they must be given
     /// in pixels (range [0 .. size]). This mode is used internally by
     /// the graphics classes of SFML, it makes the definition of texture
-    /// coordinates more intuitive for the high-level API, users don's_t need
+    /// coordinates more intuitive for the high-level API, users don't need
     /// to compute normalized values.
     ///
     /// \param texture Pointer to the texture to bind, can be null to use no texture
@@ -655,7 +655,7 @@ private:
 ///
 /// A texture can be loaded from an image, but also directly
 /// from a file/memory/stream. The necessary shortcuts are defined
-/// so that you don's_t need an image first for the most common cases.
+/// so that you don't need an image first for the most common cases.
 /// However, if you want to perform some modifications on the pixels
 /// before creating the final texture, you can load your file to a
 /// sf::Image, do whatever you need with the pixels, and then call

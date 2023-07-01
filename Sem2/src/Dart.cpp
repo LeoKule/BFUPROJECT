@@ -1,15 +1,29 @@
-#include "Dart.h"
-#include "Dart_game.h"
-#include "Logger.h"
+#include "../inc/Dart.h"
+#include "../inc/Darts_game.h"
+#include <memory>
 
 namespace dg {
-    Dart::Dart(float X, float Y, float W, float H, float Angle, float V0){
-        s_x = X; s_y = Y; s_w = W; s_h = H; s_angle = Angle; s_v0 = V0; s_t = 0; isPushed = false; s_x0 = X; s_y0 = Y;
+    Dart::Dart(float x, float y, float w, float h, float angle, float v0) {
+        s_y = y;
+        s_x = x;
+        s_x0 = x;
+        s_y0 = y;
+        s_w = w;
+        s_h = h;
+        s_angle = angle;
+        s_v0 = v0;
+        s_t = 0;
+
         uploadTexture();
-        m_shape.setPosition(s_x, s_y);
-        m_shape.setOrigin(sf::Vector2f(s_w, s_h));
-        m_shape.setTexture(m_texture);
+
+       // m_shape = new sf::Sprite();
+        m_shape = std::make_unique<sf::Sprite>(sf::Sprite());
+        m_shape->setTexture(m_texture);
+        m_shape->setOrigin(s_w, s_h);
+        m_shape->setPosition(s_x, s_y);
     }
+
+    Dart::~Dart() = default;
 
     bool Dart::uploadTexture() {
         if (!m_texture.loadFromFile("data/img/drotic.png")) {
@@ -20,109 +34,113 @@ namespace dg {
         return true;
     }
 
-    sf::Sprite &Dart::getShape() {
-        return m_shape;
+    sf::Sprite *Dart::getShape() {
+        return m_shape.get();
     }
 
     void Dart::setPushed(bool put) {
         isPushed = put;
     }
 
-    void Dart::setStartPosition(float X0, float Y0) {
-        this->s_x0 = X0;
-        this->s_y0 = Y0;
-        s_x = s_x0;
-        s_y = s_y0;
-        m_shape.setPosition(0, 0);
+    void Dart::setStartPosition(float x0, float y0) {
+        s_x0 = x0;
+        s_y0 = y0;
+        m_shape->setRotation(0);
     }
 
-    void Dart::setAngle(float Angle) {
-        this->s_angle = Angle;
+    void Dart::setAngle(float angle) {
+        s_angle = angle;
     }
 
-    void Dart::setInitialSpeed(float V0) {
-        this->s_v0 = V0;
+    void Dart::setInitialSpeed(float v0) {
+        s_v0 = v0;
     }
 
-    void Dart::setSelfTime(float Time) {
-        s_t = Time;
+    void Dart::setSelfTime(float time) {
+        s_t = time;
     }
 
     void Dart::addSelfTime(float time) {
         s_t += time;
     }
 
-    void Dart::setPosition(float X, float Y) {
-        if (X - s_w + 30 < 0)
+    void Dart::setPosition(float x, float y) {
+        if (x - s_w + 30 < 0)
             s_x = s_w - 30;
-        else if (X + s_w - 30 > WIDTH)
+        else if (x + s_w - 30 > WIDTH)
             s_x = WIDTH - s_w + 30;
         else
-            s_x = X;
-        if (Y - s_h < 0)
+            s_x = x;
+        if (y - s_h < 0)
             s_y = s_h;
-        else if (Y + s_h > HEIGHT)
+        else if (y + s_h > HEIGHT)
             s_y = HEIGHT - s_h;
         else
-            s_y = Y;
-        m_shape.setPosition(s_x, s_y);
+            s_y = y;
+        m_shape->setPosition(s_x, s_y);
     }
 
-    void Dart::Move(Scoreboard &scoreboard) {
-        if (s_x + s_w - 30 >= WIDTH && (s_y < 64 || s_y > 414) ||
-            (s_x + s_w - 10 >= WIDTH) && !(s_y < 64 || s_y > 414)) {
+    void Dart::Move(Scoreboard & scoreboard) {
+        // если дротик попал в правую часть экрана с мишенью, то начисляем очки и сбрасываем параметры
+        if ((s_x + s_w - 30 >= WIDTH && (s_y < 64 || s_y > 414)) ||
+            (s_x + s_w - 10 >= WIDTH && !(s_y < 64 || s_y > 414))) {
             scoreboard.addScore(getPoints());
             std::this_thread::sleep_for(500ms);
             this->s_v0 = 5;
-            this->s_angle = M_PI / 2;
+            this->s_angle = PI / 2;
             this->setPosition(250, 150);
             this->setStartPosition(250, 150);
             s_t = 0;
             isPushed = false;
-            std::cout << s_x << std::endl;
+        // иначе проверяем был ли брошен дротик или он находится в стартовой позиции
+        // если его бросили, то меняем координаты и угол по формулам
+        // если он находится в стартовой позиции, то дротик падает до тех пор, пока не врежется в стол
         } else if ((!isPushed && s_y + s_h <= 400) ||
                    (isPushed && s_x - s_w + 30 > 0 && s_y - s_h > 0 && s_y + s_h < HEIGHT)) {
-            std::cout << s_x << std::endl;
-            // Perform dart movement based on the elapsed time and initial velocity
             float x = s_x0 + s_v0 * cos(s_angle) * s_t;
             float y = s_y0 + s_v0 * sin(s_angle) * s_t + G * s_t * s_t / 2;
-            m_shape.setPosition(x, y);
-            m_shape.setRotation(dg::getAngle(s_x0, s_y0, s_x, s_y) * (180.0 / M_PI));
-        } else if (isPushed) {
-            std::cout << s_x << std::endl;
-            scoreboard.addScore(-10);
-            std::this_thread::sleep_for(500ms);
-            this->s_v0 = 5;
-            this->s_angle = M_PI / 2;
-            this->setPosition(240, 150);
-            this->setStartPosition(240, 150);
-            s_t = 0;
-            isPushed = false;
+            this->setPosition(x, y);
+            m_shape->setRotation(dg::getAngle(s_x0, s_y0, s_x, s_y) * (180.0 / PI));
+        } else {
+            // если дротик попал в другие части экрана, то отнимаем очки и возвращаем в стартовую позицию
+            if (isPushed) {
+                scoreboard.addScore(-10);
+                std::this_thread::sleep_for(500ms);
+                this->s_v0 = 5;
+                this->s_angle = PI / 2;
+                this->setPosition(240, 150);
+                this->setStartPosition(240, 150);
+                s_t = 0;
+                isPushed = false;
+            }
         }
-
     }
 
-    float Dart::getX() const {
+    float Dart::getX() {
         return s_x;
     }
 
-    float Dart::getY() const {
+    float Dart::getY() {
         return s_y;
     }
 
-    float Dart::getHeight() const {
+    float Dart::getHeight() {
         return s_h;
     }
 
-    float Dart::getWidth() const {
+    float Dart::getWidth() {
         return s_w;
     }
 
-    void Dart::draw(sf::RenderWindow &window) {
-        window.draw(m_shape);
+    float Dart::getAngle() {
+        return s_angle;
     }
 
-    int Dart::getPoints() const {
+    //void Dart::deleteMyself() {
+        //delete m_shape
+
+    int Dart::getPoints() {
+        // обработка попадания по зонам мишени, в зависимости от которой начисляются определенные очки
         if (64 <= s_y && s_y <= 139 || 339 <= s_y && s_y <= 414) {
             return 1;
         } else if (139 < s_y && s_y <= 189 || 289 <= s_y && s_y < 339) {
@@ -136,3 +154,4 @@ namespace dg {
     }
 
 }
+

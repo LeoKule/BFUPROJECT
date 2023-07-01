@@ -1,29 +1,33 @@
-#ifndef TEXTBOX_H
-#define TEXTBOX_H
-
-#include "Drawable.h"
+#pragma once
+#ifndef SFML_SAMPLE_TEXTBOX_H
+#define SFML_SAMPLE_TEXTBOX_H
+#include <iostream>
 #include "SFML/Graphics.hpp"
+#include <memory>
+#include "gameobject.h"
 
 namespace dg {
-    class TextBox : public Drawable {
+    class TextBox {
     public:
-        TextBox(float x, float y, const std::string& text);
+        TextBox(float x, float y, const std::string &text);
 
-        void setText(const std::string& text);
+        ~TextBox();
 
-        sf::Text getShape();
+        void setText(std::string text);
 
         void setPosition(float x, float y);
 
-        void draw(sf::RenderWindow& window) override;
+        sf::Text *getShape();
 
     private:
-        float x, y;
-        sf::Font font;
-        sf::Text text;
+        float s_x, s_y;
+
+        sf::Font Font;
+        //sf::Text *Text;
+        std::unique_ptr<sf::Text> Text;
 
         void loadFont();
     };
 }
 
-#endif  // TEXTBOX_H
+#endif //SFML_SAMPLE_TEXTBOX_H

@@ -288,7 +288,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Convert the Unicode string to a UTF-32 string
     ///
-    /// This function doesn's_t perform any conversion, since the
+    /// This function doesn't perform any conversion, since the
     /// string is already stored as UTF-32 internally.
     ///
     /// \return Converted UTF-32 string

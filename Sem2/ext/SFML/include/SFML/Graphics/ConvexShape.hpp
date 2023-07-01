@@ -76,7 +76,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Set the position of a point
     ///
-    /// Don's_t forget that the polygon must remain convex, and
+    /// Don't forget that the polygon must remain convex, and
     /// the points need to stay ordered!
     /// setPointCount must be called first in order to set the total
     /// number of points. The result is undefined if \a index is out

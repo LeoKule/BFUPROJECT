@@ -95,7 +95,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Default constructor
     ///
-    /// This constructor doesn's_t actually create the cursor;
+    /// This constructor doesn't actually create the cursor;
     /// initially the new instance is invalid and must not be
     /// used until either loadFromPixels() or loadFromSystem()
     /// is called and successfully created a cursor.
@@ -136,7 +136,7 @@ public:
     ///
     /// \param pixels   Array of pixels of the image
     /// \param size     Width and height of the image
-    /// \param hotspot  (s_x,s_y) location of the hotspot
+    /// \param hotspot  (x,y) location of the hotspot
     /// \return true if the cursor was successfully loaded;
     ///         false otherwise
     ///

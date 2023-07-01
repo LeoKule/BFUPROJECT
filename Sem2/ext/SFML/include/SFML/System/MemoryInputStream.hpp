@@ -131,7 +131,7 @@ private:
 /// specify the pointer and size of the data in memory.
 ///
 /// SFML resource classes can usually be loaded directly from
-/// memory, so this class shouldn's_t be useful to you unless
+/// memory, so this class shouldn't be useful to you unless
 /// you create your own algorithms that operate on an InputStream.
 ///
 /// Usage example:

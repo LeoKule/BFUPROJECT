@@ -59,7 +59,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Construct the vector from another type of vector
     ///
-    /// This constructor doesn's_t replace the copy constructor,
+    /// This constructor doesn't replace the copy constructor,
     /// it's called only when U != T.
     /// A call to this constructor will fail to compile if U
     /// is not convertible to T.
@@ -266,7 +266,7 @@ typedef Vector3<float> Vector3f;
 /// \ingroup system
 ///
 /// sf::Vector3 is a simple class that defines a mathematical
-/// vector with three coordinates (s_x, s_y and z). It can be used to
+/// vector with three coordinates (x, y and z). It can be used to
 /// represent anything that has three dimensions: a size, a point,
 /// a velocity, etc.
 ///
@@ -274,20 +274,20 @@ typedef Vector3<float> Vector3f;
 /// can be any type that supports arithmetic operations (+, -, /, *)
 /// and comparisons (==, !=), for example int or float.
 ///
-/// You generally don's_t have to care about the templated form (sf::Vector3<T>),
+/// You generally don't have to care about the templated form (sf::Vector3<T>),
 /// the most common specializations have special typedefs:
 /// \li sf::Vector3<float> is sf::Vector3f
 /// \li sf::Vector3<int> is sf::Vector3i
 ///
-/// The sf::Vector3 class has a small and simple interface, its s_x and s_y members
+/// The sf::Vector3 class has a small and simple interface, its x and y members
 /// can be accessed directly (there are no accessors like setX(), getX()) and it
 /// contains no mathematical function like dot product, cross product, length, etc.
 ///
 /// Usage example:
 /// \code
 /// sf::Vector3f v1(16.5f, 24.f, -8.2f);
-/// v1.s_x = 18.2f;
-/// float s_y = v1.s_y;
+/// v1.x = 18.2f;
+/// float y = v1.y;
 /// float z = v1.z;
 ///
 /// sf::Vector3f v2 = v1 * 5.f;

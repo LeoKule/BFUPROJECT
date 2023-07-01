@@ -82,7 +82,7 @@ public:
     ///
     /// The \a texture argument refers to a texture that must
     /// exist as long as the sprite uses it. Indeed, the sprite
-    /// doesn's_t store its own copy of the texture, but rather keeps
+    /// doesn't store its own copy of the texture, but rather keeps
     /// a pointer to the one that you passed to this function.
     /// If the source texture is destroyed and the sprite tries to
     /// use it, the behavior is undefined.
@@ -101,7 +101,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Set the sub-rectangle of the texture that the sprite will display
     ///
-    /// The texture rect is useful when you don's_t want to display
+    /// The texture rect is useful when you don't want to display
     /// the whole texture, but rather a part of it.
     /// By default, the texture rect covers the entire texture.
     ///
@@ -131,7 +131,7 @@ public:
     /// \brief Get the source texture of the sprite
     ///
     /// If the sprite has no source texture, a NULL pointer is returned.
-    /// The returned pointer is const, which means that you can's_t
+    /// The returned pointer is const, which means that you can't
     /// modify the texture when you retrieve it with this function.
     ///
     /// \return Pointer to the sprite's texture
@@ -249,7 +249,7 @@ private:
 /// object which can use the pixel data of a sf::Texture and draw
 /// it with its own transformation/color/blending attributes.
 ///
-/// It is important to note that the sf::Sprite instance doesn's_t
+/// It is important to note that the sf::Sprite instance doesn't
 /// copy the texture that it uses, it only keeps a reference to it.
 /// Thus, a sf::Texture must not be destroyed while it is
 /// used by a sf::Sprite (i.e. never write a function that

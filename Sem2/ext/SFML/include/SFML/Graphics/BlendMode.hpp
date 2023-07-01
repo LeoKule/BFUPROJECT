@@ -182,7 +182,7 @@ SFML_GRAPHICS_API extern const BlendMode BlendNone;     ///< Overwrite dest with
 /// The color channels RGB (red, green, blue; simply referred to as
 /// color) and A (alpha; the transparency) can be treated separately. This
 /// separation can be useful for specific blend modes, but most often you
-/// won's_t need it and will simply treat the color as a single unit.
+/// won't need it and will simply treat the color as a single unit.
 ///
 /// The blend factors and equations correspond to their OpenGL equivalents.
 /// In general, the color of the resulting pixel is calculated according

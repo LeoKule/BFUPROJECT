@@ -1,27 +1,25 @@
-#ifndef DART_H
-#define DART_H
-#define _USE_MATH_DEFINES
-#include "Drawable.h"
+#pragma once
+#ifndef SFML_SAMPLE_DART_H
+#define SFML_SAMPLE_DART_H
+
+#include "SFML/Graphics.hpp"
 #include "Scoreboard.h"
-#include <thread>
-#include <chrono>
-#include <vector>
-#include <iostream>
-#include <cmath>
-
-
+#include "gameobject.h"
+#include <memory>
 namespace dg {
-    class Dart : public Drawable {
+    class Dart : GameObject {
     public:
         Dart(float x, float y, float w, float h, float angle, float v0);
 
-        void setPushed(bool put);
+        ~Dart() override;
 
         bool uploadTexture();
 
-        sf::Sprite& getShape();
+        sf::Sprite *getShape();
 
-        void setStartPosition(float x0, float y0);
+        void setPushed(bool put);
+
+        void setStartPosition(float x0, float y0) override;
 
         void setAngle(float angle);
 
@@ -31,36 +29,48 @@ namespace dg {
 
         void addSelfTime(float time);
 
-        void setPosition(float x, float y);
+        void setPosition(float x, float y) override;
 
-        void Move(Scoreboard& scoreboard);
+        void Move(Scoreboard &scoreboard);
 
-        float getX() const;
+        float getX() override;
 
-        float getY() const;
+        float getY() override;
 
-        float getHeight() const;
+        float getHeight();
 
-        float getWidth() const;
+        float getWidth();
 
-        //float getAngle(float x1, float y1, float x2, float y2);
+        float getAngle();
 
-        void draw(sf::RenderWindow& window) override;
 
     private:
-        float s_x, s_y;
-        float s_x0, s_y0;
-        float s_w, s_h;
+        // текущее положение
+        float s_x;
+        float s_y;
+        // начальное положение
+        float s_x0;
+        float s_y0;
+        // высота и ширина изображения
+        float s_h;
+        float s_w;
+        // текущий угол
         float s_angle;
+        // начальная скорость
         float s_v0;
+        // текущее время
         float s_t;
-        bool isPushed;
+
+        // переменная для обозначения был ли дротик брошен из начального положения, необходимо для застревания в
+        // столе на старте броска
+        bool isPushed = false;
 
         sf::Texture m_texture;
-        sf::Sprite m_shape;
+        //sf::Sprite *m_shape;
+        std::unique_ptr<sf::Sprite> m_shape;
 
-        int getPoints() const;
+        int getPoints();
     };
-}
 
-#endif  // DART_H
+}
+#endif //SFML_SAMPLE_DART_H

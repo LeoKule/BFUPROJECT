@@ -1,38 +1,40 @@
-#include "Textbox.h"
-#include "Logger.h"
+#include "../inc/Textbox.h"
 
 namespace dg {
-    TextBox::TextBox(float x, float y, const std::string& initialText) : x(x), y(y) {
+    TextBox::TextBox(float x, float y, const std::string &text) {
+        s_x = x;
+        s_y = y;
+
         loadFont();
-        text.setFont(font);
-        text.setCharacterSize(24);
-        text.setString(initialText);
-        text.setFillColor(sf::Color::White);
-        text.setPosition(x, y);
+        //Text = new sf::Text;
+        Text = std::make_unique<sf::Text>(sf::Text());
+        Text->setFont(Font);
+        Text->setCharacterSize(22);
+        Text->setString(text);
+        Text->setFillColor(sf::Color::White);
+        Text->setPosition(s_x, s_y);
     }
 
-    void TextBox::setText(const std::string& Newtext) {
-        text.setString(Newtext);
+    TextBox::~TextBox() = default;
+
+    void TextBox::setText(std::string text) {
+        Text->setString(text);
     }
 
-    sf::Text TextBox::getShape(){
-        return text;
-    }
 
     void TextBox::setPosition(float x, float y) {
-        this->x = x;
-        this->y = y;
-        text.setPosition(x, y);
+        s_x = x;
+        s_y = y;
+        Text->setPosition(s_x, s_y);
     }
 
-    void TextBox::draw(sf::RenderWindow& window) {
-        window.draw(text);
+    sf::Text *TextBox::getShape() {
+        return Text.get();
     }
 
     void TextBox::loadFont() {
-        if (!font.loadFromFile("data/ttf/arial.ttf")) {
-            // Handle font loading error
-            Logger::error("ERROR when loading arial.ttf");
+        if (!Font.loadFromFile("data/ttf/arial.ttf")) {
+            std::cout << "ERROR when loading arial.ttf" << '\n';
         }
     }
 }

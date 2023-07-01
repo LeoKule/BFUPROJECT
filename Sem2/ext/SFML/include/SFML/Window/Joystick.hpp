@@ -157,7 +157,7 @@ public:
     /// \brief Update the states of all joysticks
     ///
     /// This function is used internally by SFML, so you normally
-    /// don's_t have to call it explicitly. However, you may need to
+    /// don't have to call it explicitly. However, you may need to
     /// call it if you have no window yet (or no window at all):
     /// in this case the joystick states are not updated automatically.
     ///
@@ -185,7 +185,7 @@ public:
 /// its events. Compared to the JoystickMoved, JoystickButtonPressed
 /// and JoystickButtonReleased events, sf::Joystick can retrieve the
 /// state of axes and buttons of joysticks at any time
-/// (you don's_t need to store and update a boolean on your side
+/// (you don't need to store and update a boolean on your side
 /// in order to know if a button is pressed or released), and you
 /// always get the real state of joysticks, even if they are
 /// moved, pressed or released when your window is out of focus
@@ -200,7 +200,7 @@ public:
 /// not directly available (depending on the OS), therefore an update()
 /// function must be called in order to update the current state of
 /// joysticks. When you have a window with event handling, this is done
-/// automatically, you don's_t need to call anything. But if you have no
+/// automatically, you don't need to call anything. But if you have no
 /// window, or if you want to check joysticks state before creating one,
 /// you must call sf::Joystick::update explicitly.
 ///

@@ -116,7 +116,7 @@ public:
     ///
     /// The default rotation of a view is 0 degree.
     ///
-    /// \param angle New s_angle, in degrees
+    /// \param angle New angle, in degrees
     ///
     /// \see getRotation
     ///
@@ -143,7 +143,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Reset the view to the given rectangle
     ///
-    /// Note that this function resets the rotation s_angle to 0.
+    /// Note that this function resets the rotation angle to 0.
     ///
     /// \param rectangle Rectangle defining the zone to display
     ///
@@ -175,7 +175,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Get the current orientation of the view
     ///
-    /// \return Rotation s_angle of the view, in degrees
+    /// \return Rotation angle of the view, in degrees
     ///
     /// \see setRotation
     ///
@@ -302,7 +302,7 @@ private:
 /// The viewport allows to map the scene to a custom part
 /// of the render target, and can be used for split-screen
 /// or for displaying a minimap, for example. If the source
-/// rectangle doesn's_t have the same size as the viewport, its
+/// rectangle doesn't have the same size as the viewport, its
 /// contents will be stretched to fit in.
 ///
 /// To apply a view, you have to assign it to the render target.

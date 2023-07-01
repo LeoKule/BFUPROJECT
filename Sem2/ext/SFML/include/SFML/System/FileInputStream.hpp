@@ -152,7 +152,7 @@ private:
 /// specify the file to open.
 ///
 /// SFML resource classes can usually be loaded directly from
-/// a filename, so this class shouldn's_t be useful to you unless
+/// a filename, so this class shouldn't be useful to you unless
 /// you create your own algorithms that operate on an InputStream.
 ///
 /// Usage example:

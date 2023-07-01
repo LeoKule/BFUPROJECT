@@ -141,7 +141,7 @@ private:
 /// a deadlock. In this case, the first call to lock() behaves
 /// as usual, and the following ones have no effect.
 /// However, you must call unlock() exactly as many times as you
-/// called lock(). If you don's_t, the mutex won's_t be released.
+/// called lock(). If you don't, the mutex won't be released.
 ///
 /// \see sf::Lock
 ///

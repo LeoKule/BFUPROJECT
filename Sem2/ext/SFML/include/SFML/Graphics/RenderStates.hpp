@@ -137,7 +137,7 @@ public:
 ///
 /// High-level objects such as sprites or text force some of
 /// these states when they are drawn. For example, a sprite
-/// will set its own texture, so that you don's_t have to care
+/// will set its own texture, so that you don't have to care
 /// about it when drawing the sprite.
 ///
 /// The transform is a special case: sprites, texts and shapes

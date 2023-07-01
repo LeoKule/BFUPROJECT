@@ -49,7 +49,7 @@
 #elif defined(__APPLE__) && defined(__MACH__)
 
     // Apple platform, see which one it is
-    #include "TargetConditionals.s_h"
+    #include "TargetConditionals.h"
 
     #if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
 
@@ -155,7 +155,7 @@
 
 #else
 
-    // Static build doesn's_t need import/export macros
+    // Static build doesn't need import/export macros
     #define SFML_API_EXPORT
     #define SFML_API_IMPORT
 

@@ -134,13 +134,13 @@ namespace Glsl
     ///
     /// The matrix can be constructed from an array with 3x3
     /// elements, aligned in column-major order. For example,
-    /// a translation by (s_x, s_y) looks as follows:
+    /// a translation by (x, y) looks as follows:
     /// \code
     /// float array[9] =
     /// {
     ///     1, 0, 0,
     ///     0, 1, 0,
-    ///     s_x, s_y, 1
+    ///     x, y, 1
     /// };
     ///
     /// sf::Glsl::Mat3 matrix(array);
@@ -159,14 +159,14 @@ namespace Glsl
     ///
     /// The matrix can be constructed from an array with 4x4
     /// elements, aligned in column-major order. For example,
-    /// a translation by (s_x, s_y, z) looks as follows:
+    /// a translation by (x, y, z) looks as follows:
     /// \code
     /// float array[16] =
     /// {
     ///     1, 0, 0, 0,
     ///     0, 1, 0, 0,
     ///     0, 0, 1, 0,
-    ///     s_x, s_y, z, 1
+    ///     x, y, z, 1
     /// };
     ///
     /// sf::Glsl::Mat4 matrix(array);
@@ -214,7 +214,7 @@ namespace Glsl
 /// initializes every component to zero, in addition to a
 /// constructor with one parameter for each component.
 /// The components are stored in member variables called
-/// s_x, s_y, z, and s_w.
+/// x, y, z, and w.
 ///
 /// All matrix types support a constructor with a float*
 /// parameter that points to a float array of the appropriate

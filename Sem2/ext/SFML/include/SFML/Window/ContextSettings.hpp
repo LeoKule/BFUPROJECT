@@ -111,7 +111,7 @@ struct ContextSettings
 /// OpenGL context that you want. Only versions greater or
 /// equal to 3.0 are relevant; versions lesser than 3.0 are
 /// all handled the same way (i.e. you can use any version
-/// < 3.0 if you don's_t want an OpenGL 3 context).
+/// < 3.0 if you don't want an OpenGL 3 context).
 ///
 /// When requesting a context with a version greater or equal
 /// to 3.2, you have the option of specifying whether the

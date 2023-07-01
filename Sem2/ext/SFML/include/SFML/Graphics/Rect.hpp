@@ -81,7 +81,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Construct the rectangle from another type of rectangle
     ///
-    /// This constructor doesn's_t replace the copy constructor,
+    /// This constructor doesn't replace the copy constructor,
     /// it's called only when U != T.
     /// A call to this constructor will fail to compile if U
     /// is not convertible to T.
@@ -212,7 +212,7 @@ typedef Rect<float> FloatRect;
 /// and can be accessed directly, just like the vector classes
 /// (Vector2 and Vector3).
 ///
-/// To keep things simple, sf::Rect doesn's_t define
+/// To keep things simple, sf::Rect doesn't define
 /// functions to emulate the properties that are not directly
 /// members (such as right, bottom, center, etc.), it rather
 /// only provides intersection functions.
@@ -222,14 +222,14 @@ typedef Rect<float> FloatRect;
 /// \li The right (left + width) and bottom (top + height) edges are excluded from the rectangle's area
 ///
 /// This means that sf::IntRect(0, 0, 1, 1) and sf::IntRect(1, 1, 1, 1)
-/// don's_t intersect.
+/// don't intersect.
 ///
 /// sf::Rect is a template and may be used with any numeric type, but
 /// for simplicity the instantiations used by SFML are typedef'd:
 /// \li sf::Rect<int> is sf::IntRect
 /// \li sf::Rect<float> is sf::FloatRect
 ///
-/// So that you don's_t have to care about the template syntax.
+/// So that you don't have to care about the template syntax.
 ///
 /// Usage example:
 /// \code

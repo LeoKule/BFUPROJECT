@@ -135,7 +135,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Construct a in-memory context
     ///
-    /// This constructor is for internal use, you don's_t need
+    /// This constructor is for internal use, you don't need
     /// to bother with it.
     ///
     /// \param settings Creation parameters
